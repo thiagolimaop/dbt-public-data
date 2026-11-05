@@ -1,0 +1,10 @@
+dbt_public_data:
+  target: dev
+  outputs:
+    dev:
+      dataset: "{{ env_var('DBT_DBNAME', '') }}"
+      method: service-account
+      project: "{{ env_var('PROJECT_NAME', '') }}"
+      threads: 4
+      type: bigquery
+      keyfile: "{{ env_var('FILE_PATH', '') }}"
